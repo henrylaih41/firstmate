@@ -39,6 +39,10 @@ Ship briefs also tell the crewmate to verify `pwd -P` and `git rev-parse --show-
 
 Ship tasks change projects and ship by project mode (`no-mistakes`, `direct-PR`, or `local-only`); scout tasks investigate, plan, reproduce bugs, or audit, then leave a report at `data/<id>/report.md` and never push.
 
+A behavior-shaped ship task gets a short BDD design phase first: firstmate and the captain agree the intended behaviour as captain-approved Given/When/Then acceptance scenarios (reviewed in Lavish, or briefly in chat), which then fill the brief's acceptance-scenarios block and become the crewmate's definition of "correct", each covered by a passing test.
+Trivial mechanical or non-behavioural changes and scout tasks skip this.
+The scenario practice itself is owned by the agent-only [`bdd-scenarios`](../.agents/skills/bdd-scenarios/SKILL.md) skill.
+
 ## Optional secondmates
 
 `data/secondmates.md` records persistent domain supervisors with natural-language scopes, project clone lists, and home paths.
