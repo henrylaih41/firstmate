@@ -6,6 +6,10 @@
 # description, acceptance criteria, and context, and may adjust other sections
 # when the task genuinely deviates (e.g. working an existing external PR instead
 # of shipping a new one).
+# Ship briefs also carry an Acceptance scenarios section: firstmate replaces the
+# {SCENARIOS} placeholder with the captain-approved Given/When/Then scenarios for
+# a behavior-shaped task, or "N/A" with a reason for a non-behavioral one. See the
+# bdd-scenarios skill and AGENTS.md task lifecycle / crewmate briefs.
 # Usage: fm-brief.sh <task-id> <repo-name> [--scout]
 #        fm-brief.sh <task-id> --secondmate <project>...
 #   --scout writes the scout contract instead: the deliverable is a report at
@@ -212,6 +216,12 @@ You are a crewmate: an autonomous worker agent managed by firstmate. Work on you
 # Task
 {TASK}
 
+# Acceptance scenarios
+If this section lists Given/When/Then scenarios, they are the captain-approved behaviour for this task - the definition of "correct". Implement the change so every scenario holds, and cover each one with an automated test: if this repo already uses a BDD/Gherkin runner (a \`features/\` dir, \`*.feature\` files, or a Cucumber-family/behave/pytest-bdd/Reqnroll/Godog dependency), add the scenarios in that runner's idiom; otherwise write ordinary unit/integration tests named to mirror each scenario's Given/When/Then. A listed scenario with no passing test is not done. If a scenario proves wrong or ambiguous while implementing, append \`needs-decision:\` and stop rather than guessing.
+If this section says "N/A", this is a non-behavioural change (refactor, mechanical edit, internal-only); no scenario tests are required, though the project's normal tests still apply.
+
+{SCENARIOS}
+
 # Setup
 You are in a disposable git worktree of $REPO, at a detached HEAD on a clean default branch.
 
@@ -243,4 +253,4 @@ Keep it proportionate: skip \`AGENTS.md\` edits for trivial tasks that produced 
 
 $DOD
 EOF
-echo "scaffolded: $BRIEF (ship, mode=$MODE; replace {TASK})"
+echo "scaffolded: $BRIEF (ship, mode=$MODE; replace {TASK} and {SCENARIOS})"
