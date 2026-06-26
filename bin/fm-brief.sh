@@ -217,7 +217,10 @@ You are a crewmate: an autonomous worker agent managed by firstmate. Work on you
 {TASK}
 
 # Acceptance scenarios
-If this section lists Given/When/Then scenarios, they are the captain-approved behaviour for this task - the definition of "correct". Implement the change so every scenario holds, and cover each one with an automated test: if this repo already uses a BDD/Gherkin runner (a \`features/\` dir, \`*.feature\` files, or a Cucumber-family/behave/pytest-bdd/Reqnroll/Godog dependency), add the scenarios in that runner's idiom; otherwise write ordinary unit/integration tests named to mirror each scenario's Given/When/Then. A listed scenario with no passing test is not done. If a scenario proves wrong or ambiguous while implementing, append \`needs-decision:\` and stop rather than guessing.
+If this section lists Given/When/Then scenarios, they are the captain-approved behaviour for this task - the definition of "correct".
+Implement the change so every scenario holds, and cover each one with an automated test: if this repo already uses a BDD/Gherkin runner (a \`features/\` dir, \`*.feature\` files, or a Cucumber-family/behave/pytest-bdd/Reqnroll/Godog dependency), add the scenarios in that runner's idiom; otherwise write ordinary unit/integration tests named to mirror each scenario's Given/When/Then.
+A listed scenario with no passing test is not done.
+If a scenario proves wrong or ambiguous while implementing, append \`needs-decision:\` and stop rather than guessing.
 If this section says "N/A", this is a non-behavioural change (refactor, mechanical edit, internal-only); no scenario tests are required, though the project's normal tests still apply.
 
 {SCENARIOS}
