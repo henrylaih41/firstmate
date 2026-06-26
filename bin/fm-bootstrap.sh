@@ -5,7 +5,8 @@
 #          Silent = all good.
 #          Lines: "MISSING: <tool> (install: <command>)", "NEEDS_GH_AUTH",
 #                 "CREW_HARNESS_OVERRIDE: <name>", "FLEET_SYNC: <repo>: skipped: <reason>",
-#                 "TASKS_AXI: available", "TANGLE: <remediation>".
+#                 "TASKS_AXI: available", "TANGLE: <remediation>",
+#                 "FMX: X mode on ..." or "FMX: X mode off ...".
 #          A TANGLE line means the firstmate primary checkout (FM_ROOT) is stranded
 #          on a feature branch instead of its default branch - a crewmate's work
 #          landed in the primary instead of its own worktree; restore it per the line.
@@ -14,6 +15,9 @@
 #          tasks-axi is an OPTIONAL backlog-management capability reported only
 #          when tasks-axi --version is 0.1.1 or newer. It is never a MISSING
 #          line and never prompts an install.
+#          X mode is OPTIONAL and inert unless FM_HOME/.env has a non-empty
+#          FMX_PAIRING_TOKEN. When opted in, bootstrap requires curl+jq, writes
+#          the relay poll shim and 30s cadence config, and prints an FMX line.
 #          Fleet sync fetches, fast-forwards, and prunes gone local branches;
 #          it is bounded by FM_FLEET_SYNC_BOOTSTRAP_TIMEOUT, default 20s.
 #          Set FM_FLEET_PRUNE=0 to skip branch pruning during that refresh.
